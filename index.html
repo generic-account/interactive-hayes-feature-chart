@@ -1,0 +1,41 @@
+---
+layout: default
+title: Hayes Features
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/hayes-features.css' | relative_url }}">
+
+<h1>Hayes Features</h1>
+<p>Click a sound to hear it.</p>
+
+<table class="feature-chart">
+  <thead>
+    <tr>
+      <th>Sound</th>
+      <th>sonorant</th>
+      <th>consonantal</th>
+      <th>continuant</th>
+      <th>voice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><button class="sound" data-audio="{{ '/assets/audio/p.mp3' | relative_url }}">p</button></td>
+      <td class="minus">−</td>
+      <td class="plus">+</td>
+      <td class="minus">−</td>
+      <td class="minus">−</td>
+    </tr>
+    <tr>
+      <td><button class="sound" data-audio="{{ '/assets/audio/b.mp3' | relative_url }}">b</button></td>
+      <td class="minus">−</td>
+      <td class="plus">+</td>
+      <td class="minus">−</td>
+      <td class="plus">+</td>
+    </tr>
+  </tbody>
+</table>
+
+<audio id="player"></audio>
+
+<script src="{{ '/assets/js/hayes-features.js' | relative_url }}"></script>

@@ -1,0 +1,13 @@
+title: Interactive Hayes feature Chart
+description: An interactive online Hayes phonological feature chart
+theme: jekyll-theme-minimal
+
+url: "https://generic-account.github.io"
+baseurl: "/interactive-hayes-feature-chart"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+highlighter: rouge
