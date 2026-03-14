@@ -1,0 +1,114 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* Dark mode base */
+:root { color-scheme: dark; }
+html, body { background: #000; }
+body { color: #f5f5f5; }
+
+/* Center the content block */
+.wrapper,
+.page-content,
+main,
+.site-footer,
+.site-header {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-content { padding: 2rem 1.25rem 3rem; }
+.site-header, .site-footer { background: transparent; border: 0; }
+.site-header { margin: 0; padding: 0; }
+
+/* Links: clean monochrome */
+a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.7);
+}
+a:hover, a:focus {
+  background: #fff;
+  color: #000;
+}
+
+/* Dividers & typography polish */
+hr { border: 0; border-top: 1px solid #333; margin: 2rem 0; }
+h1, h2, h3 { color: #fff; }
+p { line-height: 1.6; }
+
+/* Code blocks & inline code on dark bg */
+pre, code, kbd, samp {
+  background: #0f0f0f;
+  color: #f5f5f5;
+}
+pre { border: 1px solid #333; padding: 0.9rem; overflow: auto; }
+code { border-radius: 4px; padding: 0.1em 0.35em; }
+
+/* Blockquotes & tables */
+blockquote { color: #d0d0d0; border-left: 3px solid #333; }
+table { border-color: #333; }
+th, td { border-color: #333; }
+
+/* Hide theme header chrome if desired */
+.site-header .site-title, .site-header .site-description { display: none; }
+
+.feature-chart {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.feature-chart th,
+.feature-chart td {
+  border: 1px solid #333;
+  padding: 0.45rem 0.6rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.feature-chart th {
+  font-weight: 600;
+  color: #fff;
+}
+
+.feature-chart td:first-child,
+.feature-chart th:first-child {
+  text-align: left;
+}
+
+.sound {
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  min-width: 2.2rem;
+}
+
+.sound:hover,
+.sound:focus {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.sound.playing {
+  font-weight: 700;
+  border-color: #fff;
+}
+
+.plus {
+  font-weight: 600;
+  color: #fff;
+}
+
+.minus {
+  color: #aaa;
+}
