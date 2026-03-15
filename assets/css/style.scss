@@ -52,7 +52,7 @@ footer {
 .page-header {
   background: transparent;
   border: 0;
-}
+}−
 
 /* Links: monochrome */
 a {
@@ -213,4 +213,93 @@ video {
   td {
     padding: 0.4rem 0.45rem;
   }
+}
+
+.hayes-chart {
+  border-collapse: collapse;
+  margin: 1.5rem 0 2.5rem;
+  width: auto;
+  table-layout: fixed;
+}
+
+.hayes-chart th,
+.hayes-chart td {
+  border: 1px solid #666;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 2.1rem;
+  height: 2.1rem;
+}
+
+.hayes-chart .corner {
+  background: #111;
+  min-width: 6rem;
+}
+
+.hayes-chart .group {
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.4rem 0.25rem;
+  height: auto;
+}
+
+.hayes-chart .vertical {
+  width: 2.2rem;
+  min-width: 2.2rem;
+  height: 10.5rem;
+  background: #000;
+}
+
+.hayes-chart .vertical > span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.35rem 0.15rem;
+  font-weight: 500;
+}
+
+.hayes-chart .row-group {
+  width: 4.8rem;
+  min-width: 4.8rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  padding: 0.4rem 0.2rem;
+  font-weight: 500;
+  background: #000;
+}
+
+.hayes-chart .segment {
+  min-width: 3.2rem;
+  width: 3.2rem;
+  padding: 0.2rem;
+}
+
+.hayes-chart .sound {
+  display: inline-block;
+  min-width: 2.2rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid #666;
+  border-radius: 0;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hayes-chart .sound:hover,
+.hayes-chart .sound:focus {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  outline: none;
+}
+
+.hayes-chart .sound.playing {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
 }
