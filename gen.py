@@ -443,7 +443,7 @@ ROWS = [
         ],
     },
     {
-        "label": "labial-velar (front/none/back)",
+        "label": "labial-velar (front/back)",
         "rows": [
             {
                 "symbol": "w",
