@@ -272,3 +272,24 @@ video {
     height: 8.6rem;
   }
 }
+
+.hayes-chart .section-start {
+  border-left: 2px solid #fff;
+}
+
+/* slightly lighter divider between labial / coronal / dorsal */
+.hayes-chart .subsection-start {
+  border-left: 2px solid #999;
+}
+
+/* thicker horizontal dividers between row groups */
+.hayes-chart tr.group-start > th,
+.hayes-chart tr.group-start > td {
+  border-top: 2px solid #fff;
+}
+
+// maybe
+.hayes-chart tbody tr.group-start:first-child > th,
+.hayes-chart tbody tr.group-start:first-child > td {
+  border-top: 1px solid #666;
+}
