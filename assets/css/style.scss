@@ -274,7 +274,7 @@ video {
 }
 
 .hayes-chart .section-start {
-  border-left: 2px solid #fff;
+  border-left: 2px solid #999;
 }
 
 /* slightly lighter divider between labial / coronal / dorsal */
@@ -285,7 +285,7 @@ video {
 /* thicker horizontal dividers between row groups */
 .hayes-chart tr.group-start > th,
 .hayes-chart tr.group-start > td {
-  border-top: 2px solid #fff;
+  border-top: 2px solid #999;
 }
 
 // maybe
