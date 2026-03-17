@@ -1,0 +1,5 @@
+- left label wrap around
+- header copying / keep at the top
+- vowel charts
+- add audio (probably mostly manual, maybe try to automate)
+- verify all charts
