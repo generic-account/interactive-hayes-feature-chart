@@ -722,6 +722,7 @@ title: {TITLE}
 <p>Prototype chart. Click a segment to play a stub audio file.</p>
 <p>All consonants are [-syllabic], so this feature is not included in the chart.</p>
 <p>Labial-back velar, labial-velar, labial-front velar, alveolopalatal, and palatal sounds have two places of articulation.</p>
+<p>Labial-back velar, labial-velar, and labial-front velar have been merged into one (labial-velar front/back) for formatting.</p>
 
 <table class="hayes-chart">
   <thead>
