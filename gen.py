@@ -652,7 +652,7 @@ def render_group(group: dict, start_index: int) -> tuple[str, int]:
 
         out.append('      <th scope="row" class="segment">')
         out.append(
-            f'        <button class="sound" data-audio="{{{{ \'/assets/audio/stub/{row["audio"]}.mp3\' | relative_url }}}}">{row["symbol"]}</button>'
+            f'        <button class="sound" data-audio="{{{{ \'/assets/audio/{row["audio"]}.mp3\' | relative_url }}}}">{row["symbol"]}</button>'
         )
         out.append("      </th>")
 
@@ -687,7 +687,7 @@ def render_vowel_chart() -> str:
         audio_num = VOWEL_AUDIO_START + i
         cls = ' class="section-start"' if i in VOWEL_SECTION_STARTS else ""
         top.append(
-            f'      <th{cls}><button class="sound" data-audio="{{{{ \'/assets/audio/stub/{audio_num:03d}.mp3\' | relative_url }}}}">{symbol}</button></th>'
+            f'      <th{cls}><button class="sound" data-audio="{{{{ \'/assets/audio/{audio_num:03d}.mp3\' | relative_url }}}}">{symbol}</button></th>'
         )
     top.append("    </tr>")
     top.append("  </thead>")
