@@ -288,21 +288,29 @@ video {
   border-top: 2px solid #999;
 }
 
+.hayes-chart {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
 .hayes-chart thead th {
   position: sticky;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* first header row */
 .hayes-chart thead tr:first-child th {
   top: 0;
   background: #111;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
 }
 
 /* second header row */
 .hayes-chart thead tr:nth-child(2) th {
-  top: 2.1rem; /* height of the first header row */
+  top: 2.3rem; /* adjust if needed */
   background: #000;
+  border-bottom: 1px solid #666;
 }
 
 // // maybe
