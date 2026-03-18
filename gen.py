@@ -534,6 +534,53 @@ ROWS = [
     },
 ]
 
+VOWEL_GROUPS = [
+    ("high tense", ["i", "y", "ɨ", "ʉ", "ɯ", "u"]),
+    ("high lax", ["ɪ", "ʏ", "ʊ"]),
+    ("mid tense", ["e", "ø", "ə", "ɵ", "ɤ", "o"]),
+    ("mid lax", ["ɛ", "œ", "ɜ", "ɞ", "ʌ", "ɔ"]),
+    ("low", ["æ", "ɶ", "a", "ɒ", "ɑ"]),
+]
+
+VOWEL_FEATURES = [
+    "high",
+    "low",
+    "tense",
+    "front",
+    "back",
+    "round",
+]
+
+VOWEL_ROWS = [
+    {
+        "feature": "high",
+        "values": ["+", "+", "+", "+", "+", "+", "+", "+", "+", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"],
+    },
+    {
+        "feature": "low",
+        "values": ["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "+", "+", "+", "+", "+"],
+    },
+    {
+        "feature": "tense",
+        "values": ["+", "+", "+", "+", "+", "+", "-", "-", "-", "+", "+", "+", "+", "+", "+", "-", "-", "-", "-", "-", "-", "0", "0", "0", "0", "0"],
+    },
+    {
+        "feature": "front",
+        "values": ["+", "+", "-", "-", "-", "-", "+", "+", "-", "+", "+", "-", "-", "-", "-", "+", "+", "-", "-", "-", "-", "+", "+", "-", "-", "-"],
+    },
+    {
+        "feature": "back",
+        "values": ["-", "-", "-", "-", "+", "+", "-", "-", "+", "-", "-", "-", "-", "+", "+", "-", "-", "-", "-", "+", "+", "-", "-", "-", "+", "+"],
+    },
+    {
+        "feature": "round",
+        "values": ["-", "+", "-", "+", "-", "+", "-", "+", "+", "-", "+", "-", "+", "-", "+", "-", "+", "-", "+", "-", "+", "-", "+", "-", "-", "+"],
+    },
+]
+
+VOWEL_AUDIO_START = 201
+VOWEL_SECTION_STARTS = {6, 9, 15, 21}
+
 def feature_header_cell(name: str, i: int) -> str:
     classes = ["vertical"]
     if i in SECTION_STARTS:
@@ -594,6 +641,51 @@ def render_group(group: dict, start_index: int) -> tuple[str, int]:
 
     return "\n".join(out), start_index + len(rows)
 
+def flatten_vowel_symbols() -> list[str]:
+    out = []
+    for _, symbols in VOWEL_GROUPS:
+        out.extend(symbols)
+    return out
+
+def render_vowel_chart() -> str:
+    symbols = flatten_vowel_symbols()
+
+    top = [
+        '<table class="vowel-chart">',
+        "  <thead>",
+        "    <tr>",
+        '      <th class="corner"></th>',
+    ]
+    for label, group_symbols in VOWEL_GROUPS:
+        top.append(f'      <th colspan="{len(group_symbols)}" class="group">{label}</th>')
+    top.append("    </tr>")
+
+    top.append("    <tr>")
+    top.append('      <th class="lefthead">Feature</th>')
+    for i, symbol in enumerate(symbols):
+        audio_num = VOWEL_AUDIO_START + i
+        cls = ' class="section-start"' if i in VOWEL_SECTION_STARTS else ""
+        top.append(
+            f'      <th{cls}><button class="sound" data-audio="{{{{ \'/assets/audio/stub/{audio_num:03d}.mp3\' | relative_url }}}}">{symbol}</button></th>'
+        )
+    top.append("    </tr>")
+    top.append("  </thead>")
+
+    body = ["  <tbody>"]
+    for row in VOWEL_ROWS:
+        body.append("    <tr>")
+        body.append(f'      <th scope="row">{row["feature"]}</th>')
+        cells = []
+        for i, value in enumerate(row["values"]):
+            cls = ' class="section-start"' if i in VOWEL_SECTION_STARTS else ""
+            cells.append(f"<td{cls}>{value}</td>")
+        body.append("      " + "".join(cells))
+        body.append("    </tr>")
+    body.append("  </tbody>")
+    body.append("</table>")
+
+    return "\n".join(top + body)
+
 def validate() -> None:
     expected = len(FEATURES)
     for group in ROWS:
@@ -603,6 +695,14 @@ def validate() -> None:
                 raise ValueError(
                     f'{group["label"]} / {row["symbol"]}: expected {expected} values, got {actual}'
                 )
+
+    vowel_expected = sum(len(symbols) for _, symbols in VOWEL_GROUPS)
+    for row in VOWEL_ROWS:
+        actual = len(row["values"])
+        if actual != vowel_expected:
+            raise ValueError(
+                f'vowels / {row["feature"]}: expected {vowel_expected} values, got {actual}'
+            )
 
 def render_page() -> str:
     validate()
@@ -630,6 +730,11 @@ title: {TITLE}
 {chr(10).join(body_chunks)}
   </tbody>
 </table>
+
+<h1>Hayes Vowel Features</h1>
+<p>Prototype chart. Click a vowel to play a stub audio file.</p>
+
+{render_vowel_chart()}
 
 <audio id="player"></audio>
 <script src="{{{{ '/assets/js/hayes-features.js' | relative_url }}}}"></script>
