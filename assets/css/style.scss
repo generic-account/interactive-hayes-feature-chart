@@ -121,7 +121,8 @@ table {
 
 /* Hayes chart */
 .hayes-chart {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 1.5rem 0 2.5rem;
   width: auto;
   table-layout: fixed;
@@ -140,14 +141,20 @@ table {
 
 .hayes-chart .corner {
   background: #111;
+  height: 4.5rem;
+  min-height: 4.5rem;
 }
 
 .hayes-chart .group {
   background: #111;
   color: #fff;
   font-weight: 600;
-  padding: 0.35rem 0.25rem;
-  height: auto;
+  height: 4.5rem;
+  min-height: 4.5rem;
+  padding: 0.5rem 0.35rem;
+  line-height: 1.2;
+  vertical-align: middle;
+  white-space: normal;
 }
 
 .hayes-chart .lefthead {
@@ -243,6 +250,44 @@ table {
   font-weight: 500;
 }
 
+.hayes-chart .section-start {
+  border-left: 2px solid #999;
+}
+
+/* slightly lighter divider between labial / coronal / dorsal */
+.hayes-chart .subsection-start {
+  border-left: 2px solid #999;
+}
+
+/* thicker horizontal dividers between row groups */
+.hayes-chart tr.group-start > th,
+.hayes-chart tr.group-start > td {
+  border-top: 2px solid #999;
+}
+
+/* Sticky first two header rows */
+.hayes-chart thead th {
+  position: sticky;
+  z-index: 3;
+}
+
+.hayes-chart thead tr:first-child th {
+  top: 0;
+  background: #111;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  height: 4.5rem;
+  min-height: 4.5rem;
+  padding: 0.5rem 0.35rem;
+  vertical-align: middle;
+}
+
+.hayes-chart thead tr:nth-child(2) th {
+  top: 4.5rem;
+  background: #000;
+  border-bottom: 1px solid #666;
+}
+
 /* Responsive */
 img,
 iframe,
@@ -272,62 +317,3 @@ video {
     height: 8.6rem;
   }
 }
-
-.hayes-chart .section-start {
-  border-left: 2px solid #999;
-}
-
-/* slightly lighter divider between labial / coronal / dorsal */
-.hayes-chart .subsection-start {
-  border-left: 2px solid #999;
-}
-
-/* thicker horizontal dividers between row groups */
-.hayes-chart tr.group-start > th,
-.hayes-chart tr.group-start > td {
-  border-top: 2px solid #999;
-}
-
-.hayes-chart {
-  border-collapse: separate;
-  border-spacing: 0;
-}
-
-.hayes-chart thead th {
-  position: sticky;
-  z-index: 3;
-}
-
-/* first header row */
-.hayes-chart thead tr:first-child th {
-  top: 0;
-  background: #111;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
-}
-
-/* second header row */
-.hayes-chart thead tr:nth-child(2) th {
-  top: 2.3rem; /* adjust if needed */
-  background: #000;
-  border-bottom: 1px solid #666;
-}
-
-.hayes-chart thead tr:first-child th {
-  top: 0;
-  background: #111;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
-  height: 3rem;
-  min-height: 3rem;
-}
-
-.hayes-chart thead tr:nth-child(2) th {
-  top: 3rem;
-}
-
-// // maybe
-// .hayes-chart tbody tr.group-start:first-child > th,
-// .hayes-chart tbody tr.group-start:first-child > td {
-//   border-top: 1px solid #666;
-// }
