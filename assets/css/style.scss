@@ -317,3 +317,9 @@ video {
     height: 8.6rem;
   }
 }
+
+.hayes-chart thead tr:first-child th > * {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
