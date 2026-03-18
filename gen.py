@@ -790,10 +790,11 @@ title: {TITLE}
 ---
 
 <h1>Hayes Consonant Features</h1>
-<p>Prototype chart. Click a segment to play a stub audio file.</p>
+<p>Prototype chart. Click a segment to play an audio file.</p>
 <p>All consonants are [-syllabic], so this feature is not included in the chart.</p>
 <p>Labial-back velar, labial-velar, labial-front velar, alveolopalatal, and palatal sounds have two places of articulation.</p>
 <p>Labial-back velar, labial-velar, and labial-front velar have been merged into one (labial-velar front/back) for formatting.</p>
+<p>Fronted velars and back velars have no sound files associated with them yet.</p>
 
 <table class="hayes-chart">
   <thead>
@@ -806,7 +807,7 @@ title: {TITLE}
 </table>
 
 <h1>Hayes Vowel Features</h1>
-<p>Prototype chart. Click a vowel to play a stub audio file.</p>
+<p>Prototype chart. Click a vowel to play an audio file.</p>
 <p>The basic features for vowels (shown by the basic IPA symbols rather than the diacritics) are
 [round], [high], [low], [front], and [back]. [labial] is predictable, occurring only in [+round] vowels.
 All other features are invariant; unless overridden by a diacritic, all vowels are [+syllabic,
@@ -819,6 +820,9 @@ All other features are invariant; unless overridden by a diacritic, all vowels a
 <p>Diacritics and their designated features.</p>
 
 {render_diacritics_chart()}
+
+<p>All sounds are from https://en.wikipedia.org/wiki/IPA_vowel_chart_with_audio</p>
+<p>Please make a PR if you notice any mistakes.</p>
 
 <audio id="player"></audio>
 <script src="{{{{ '/assets/js/hayes-features.js' | relative_url }}}}"></script>
