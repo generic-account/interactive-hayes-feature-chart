@@ -1,5 +1,3 @@
-- left label wrap around
-- header copying / keep at the top
 - vowel charts
 - additional symbol
 - descroptions
