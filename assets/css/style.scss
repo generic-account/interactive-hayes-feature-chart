@@ -143,6 +143,7 @@ table {
   background: #111;
   height: 4.5rem;
   min-height: 4.5rem;
+  padding: 0;
 }
 
 .hayes-chart .group {
@@ -151,10 +152,13 @@ table {
   font-weight: 600;
   height: 4.5rem;
   min-height: 4.5rem;
-  padding: 0.5rem 0.35rem;
+  padding: 0 0.35rem;
   line-height: 1.2;
-  vertical-align: middle;
   white-space: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .hayes-chart .lefthead {
@@ -278,7 +282,7 @@ table {
   border-bottom: 1px solid #666;
   height: 4.5rem;
   min-height: 4.5rem;
-  padding: 0.5rem 0.35rem;
+  padding: 0;
   vertical-align: middle;
 }
 
