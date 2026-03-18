@@ -407,28 +407,30 @@ video {
   color: #000;
   font-weight: 700;
 }
-
 .diacritics-chart {
   border-collapse: separate;
   border-spacing: 0;
   margin: 1.5rem 0 2.5rem;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   table-layout: auto;
 }
 
 .diacritics-chart th,
 .diacritics-chart td {
   border: 1px solid #666;
-  padding: 0.35rem 0.5rem;
+  padding: 0.2rem 0.35rem;
   text-align: left;
   vertical-align: top;
   color: #fff;
+  line-height: 1.25;
 }
 
 .diacritics-chart thead th {
   background: #111;
   color: #fff;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .diacritics-chart tbody td {
@@ -436,10 +438,19 @@ video {
 }
 
 .diacritics-chart tbody td:first-child {
-  width: 4.5rem;
-  min-width: 4.5rem;
+  width: 2.2rem;
+  min-width: 2.2rem;
   text-align: center;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.diacritics-chart tbody td:nth-child(2) {
+  white-space: nowrap;
+}
+
+.diacritics-chart tbody td:nth-child(3) {
+  white-space: nowrap;
 }
 
 .diacritics-chart tbody td:last-child {
