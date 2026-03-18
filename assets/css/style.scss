@@ -288,6 +288,23 @@ video {
   border-top: 2px solid #999;
 }
 
+.hayes-chart thead th {
+  position: sticky;
+  z-index: 2;
+}
+
+/* first header row */
+.hayes-chart thead tr:first-child th {
+  top: 0;
+  background: #111;
+}
+
+/* second header row */
+.hayes-chart thead tr:nth-child(2) th {
+  top: 2.1rem; /* height of the first header row */
+  background: #000;
+}
+
 // // maybe
 // .hayes-chart tbody tr.group-start:first-child > th,
 // .hayes-chart tbody tr.group-start:first-child > td {
