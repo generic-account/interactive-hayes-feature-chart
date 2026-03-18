@@ -578,6 +578,27 @@ VOWEL_ROWS = [
     },
 ]
 
+DIACRITICS_ROWS = [
+    ("̩", "a consonant", "syllabic", "[+syllabic]"),
+    ("̰", "voiced sounds", "creaky voice", "[-spread glottis, +constricted glottis]"),
+    ("̤", "voiced sounds", "breathy voice", "[+spread glottis, -constricted glottis]"),
+    ("̥", "voiced sounds", "voiceless", "[-voice]"),
+    ("̠", "alveolar", "palato-alveolar", "[-anterior, +distributed]"),
+    ("̪", "alveolar", "dental", "[+anterior, +distributed]"),
+    ("̟", "velar", "fronted velar", "[+front, -back]"),
+    ("̠", "velar", "backed velar", "[-front, +back]"),
+    ("ˈ", "before a syllable", "stressed", "[+stress]"),
+    ("ː", "any segment", "long", "[+long]"),
+    ("ʰ", "a consonant", "aspirated", "[+spread glottis, -constricted glottis]"),
+    ("ʲ", "a consonant", "palatalized", "[+dorsal, +high, -low, -front, -back]"),
+    ("ʷ", "a consonant", "labialized", "[+labial, +round]"),
+    ("ˠ", "a consonant", "velarized", "[+dorsal, +high, -low, -front, +back]"),
+    ("ˤ", "a consonant", "pharyngealized", "[+dorsal, -high, +low, -front, +back]"),
+    ("̃", "a sonorant", "nasalized", "[+nasal]"),
+    ("˞", "a vowel", "rhotic", "[+coronal, +anterior, +distributed, -strident]"),
+    ("ʼ", "an obstruent", "ejective", "[-spread glottis, +constricted glottis]"),
+]
+
 VOWEL_AUDIO_START = 201
 VOWEL_SECTION_STARTS = {6, 9, 15, 21}
 
@@ -686,6 +707,56 @@ def render_vowel_chart() -> str:
 
     return "\n".join(top + body)
 
+DIACRITICS_ROWS = [
+    ("̩", "a consonant", "syllabic", "[+syllabic]"),
+    ("̰", "voiced sounds", "creaky voice", "[-spread glottis, +constricted glottis]"),
+    ("̤", "voiced sounds", "breathy voice", "[+spread glottis, -constricted glottis]"),
+    ("̥", "voiced sounds", "voiceless", "[-voice]"),
+    ("̠", "alveolar", "palato-alveolar", "[-anterior, +distributed]"),
+    ("̪", "alveolar", "dental", "[+anterior, +distributed]"),
+    ("̟", "velar", "fronted velar", "[+front, -back]"),
+    ("̠", "velar", "backed velar", "[-front, +back]"),
+    ("ˈ", "before a syllable", "stressed", "[+stress]"),
+    ("ː", "any segment", "long", "[+long]"),
+    ("ʰ", "a consonant", "aspirated", "[+spread glottis, -constricted glottis]"),
+    ("ʲ", "a consonant", "palatalized", "[+dorsal, +high, -low, -front, -back]"),
+    ("ʷ", "a consonant", "labialized", "[+labial, +round]"),
+    ("ˠ", "a consonant", "velarized", "[+dorsal, +high, -low, -front, +back]"),
+    ("ˤ", "a consonant", "pharyngealized", "[+dorsal, -high, +low, -front, +back]"),
+    ("̃", "a sonorant", "nasalized", "[+nasal]"),
+    ("˞", "a vowel", "rhotic", "[+coronal, +anterior, +distributed, -strident]"),
+    ("ʼ", "an obstruent", "ejective", "[-spread glottis, +constricted glottis]"),
+]
+def render_diacritics_chart() -> str:
+    out = [
+        '<table class="diacritics-chart">',
+        "  <thead>",
+        "    <tr>",
+        "      <th>Diacritic</th>",
+        "      <th>As applied to</th>",
+        "      <th>Phonetic definition</th>",
+        "      <th>Designates these features</th>",
+        "    </tr>",
+        "  </thead>",
+        "  <tbody>",
+    ]
+
+    for diacritic, applied_to, definition, features in DIACRITICS_ROWS:
+        out.extend([
+            "    <tr>",
+            f"      <td>{diacritic}</td>",
+            f"      <td>{applied_to}</td>",
+            f"      <td>{definition}</td>",
+            f"      <td>{features}</td>",
+            "    </tr>",
+        ])
+
+    out.extend([
+        "  </tbody>",
+        "</table>",
+    ])
+    return "\n".join(out)
+
 def validate() -> None:
     expected = len(FEATURES)
     for group in ROWS:
@@ -743,6 +814,11 @@ All other features are invariant; unless overridden by a diacritic, all vowels a
 -spread glottis, +constricted glottis, -labiodental, -coronal, 0anterior, 0distributed, 0strident].</p>
 
 {render_vowel_chart()}
+
+<h1>Hayes Diacritics</h1>
+<p>Diacritics and their designated features.</p>
+
+{render_diacritics_chart()}
 
 <audio id="player"></audio>
 <script src="{{{{ '/assets/js/hayes-features.js' | relative_url }}}}"></script>
