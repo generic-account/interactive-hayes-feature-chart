@@ -318,8 +318,8 @@ video {
   }
 }
 
-.hayes-chart thead tr:first-child th > * {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+.hayes-chart thead tr:first-child .group,
+.hayes-chart thead tr:first-child .corner {
+  padding-top: 0;
+  padding-bottom: 0;
 }
